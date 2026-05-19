@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "287238800831",
+    "project_id": "bblite-98b01",
+    "storage_bucket": "bblite-98b01.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287238800831:android:c323d7e225544e6bfa4d0a",
+        "android_client_info": {
+          "package_name": "com.example.bigbolyde_lite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkTeSyMJrUNpl1BNbgvQiOF6XO7CFYXz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "build/web",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,5 +12,28 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "bblite-98b01",
+          "appId": "1:287238800831:android:c323d7e225544e6bfa4d0a",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "bblite-98b01",
+          "configurations": {
+            "android": "1:287238800831:android:c323d7e225544e6bfa4d0a",
+            "ios": "1:287238800831:ios:7e37fd8d8a62eba9fa4d0a",
+            "macos": "1:287238800831:ios:7e37fd8d8a62eba9fa4d0a",
+            "web": "1:287238800831:web:a3a5ae834b4cdfd2fa4d0a",
+            "windows": "1:287238800831:web:e6305622df9018c7fa4d0a"
+          }
+        }
+      }
+    }
   }
 }
