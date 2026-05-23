@@ -78,6 +78,47 @@ class HeroBanner extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: theme.colorScheme.primary,
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              elevation: 4,
+              shadowColor: theme.colorScheme.primary.withOpacity(0.4),
+            ),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  backgroundColor: isDark ? Colors.black87 : Colors.white,
+                  title: Text('About BIG BOLYDE'),
+                  content: Text(
+                    'BIG BOLYDE started as a vision of performance — inspired by the automotive world. '
+                    'Today, it’s a growing brand within the Big‑E ecosystem, offering a curated gateway to quality products '
+                    'from local and international brands. Our philosophy is simple: clarity, trust, and value. '
+                    'As we expand, the automotive branch will return, completing the full circle of innovation we stand for.',
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: isDark ? Colors.white70 : Colors.black87,
+                      height: 1.5,
+                    ),
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('Close'),
+                    ),
+                  ],
+                ),
+              );
+            },
+            child: const Text(
+              'LEARN MORE',
+              style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.2),
+            ),
+          ),
         ],
       ),
     );
