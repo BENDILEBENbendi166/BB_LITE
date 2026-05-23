@@ -61,23 +61,22 @@ class HeroBanner extends StatelessWidget {
           Text(
             'Trusted picks. Clear value. No noise.',
             style: theme.textTheme.bodyMedium?.copyWith(
-              color: isDark ? Colors.white70 : Colors.white70,
-              height: 1.4,
+              fontWeight: FontWeight.w600,
+              color: isDark ? Colors.white70 : Colors.black87,
+              letterSpacing: 0.5,
             ),
             textAlign: TextAlign.center,
           ),
-
           const SizedBox(height: 6),
-
-          // SUPPORTING LINE — lighter, more elegant
           Text(
-            'Your curated gateway to gaming, tech, home & lifestyle.',
+            'Discover curated products that blend performance, design, and everyday reliability.',
             style: theme.textTheme.bodySmall?.copyWith(
-              color: isDark ? Colors.white54 : Colors.white54,
-              height: 1.4,
+              color: isDark ? Colors.white54 : Colors.black54,
+              height: 1.5,
             ),
             textAlign: TextAlign.center,
           ),
+          // LEARN MORE BUTTON — more inviting, with a subtle shadow
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: theme.colorScheme.primary,
