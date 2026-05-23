@@ -1,4 +1,5 @@
 import 'package:bigbolyde_lite/core/theme/app_theme.dart';
+import 'package:bigbolyde_lite/presentation/screens/home/bIg_eco.dart';
 import 'package:bigbolyde_lite/presentation/screens/home/footer_screen.dart';
 import 'package:bigbolyde_lite/presentation/screens/home/hero_screen.dart';
 import 'package:bigbolyde_lite/state/controllers/theme_controller.dart';
@@ -99,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const HeroBanner(),
+                    const EcosystemReveal(),
                     const SizedBox(height: 20),
 
                     // SEARCH BAR
