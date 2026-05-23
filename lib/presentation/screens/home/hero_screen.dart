@@ -1,3 +1,4 @@
+import 'package:bigbolyde_lite/presentation/screens/home/about_screen.dart';
 import 'package:flutter/material.dart';
 
 class HeroBanner extends StatelessWidget {
@@ -10,54 +11,52 @@ class HeroBanner extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 56, horizontal: 20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            theme.colorScheme.primary.withOpacity(0.12),
-            theme.colorScheme.primary.withOpacity(0.04),
+            theme.colorScheme.primary.withOpacity(0.13),
+            isDark
+                ? Colors.black.withOpacity(0.92)
+                : Colors.white.withOpacity(0.97),
           ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
       ),
-
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // LOGO — cleaner, more breathable
-          AnimatedScale(
-            scale: 1,
-            duration: const Duration(milliseconds: 600),
+          TweenAnimationBuilder<double>(
+            tween: Tween(begin: 0.85, end: 1.0),
+            duration: const Duration(milliseconds: 1200),
             curve: Curves.easeOutBack,
-            child: Image.asset(
-              'assets/logo/Logo.png',
-              height: 100,
-              fit: BoxFit.contain,
+            builder: (context, scale, child) => Transform.scale(
+              scale: scale,
+              child: Image.asset(
+                'assets/logo/Logo.png',
+                height: 104,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
-
-          const SizedBox(height: 20),
-
-          // BRAND NAME — cleaner glow, theme-aware
+          const SizedBox(height: 22),
           Text(
             'BIG BOLYDE',
             style: theme.textTheme.headlineMedium?.copyWith(
               fontWeight: FontWeight.bold,
-              letterSpacing: 2,
+              letterSpacing: 2.2,
               color: theme.colorScheme.primary,
               shadows: [
                 Shadow(
-                  color: theme.colorScheme.primary.withOpacity(0.3),
+                  color: theme.colorScheme.primary.withOpacity(0.22),
                   blurRadius: 14,
                 ),
               ],
             ),
           ),
-
-          const SizedBox(height: 10),
-
-          // TRUST MESSAGE — softer, more premium
+          const SizedBox(height: 12),
           Text(
             'Trusted picks. Clear value. No noise.',
             style: theme.textTheme.bodyMedium?.copyWith(
@@ -76,12 +75,12 @@ class HeroBanner extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          // LEARN MORE BUTTON — more inviting, with a subtle shadow
+          const SizedBox(height: 32),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: theme.colorScheme.primary,
               foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -89,27 +88,17 @@ class HeroBanner extends StatelessWidget {
               shadowColor: theme.colorScheme.primary.withOpacity(0.4),
             ),
             onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  backgroundColor: isDark ? Colors.black87 : Colors.white,
-                  title: Text('About BIG BOLYDE'),
-                  content: Text(
-                    'BIG BOLYDE started as a vision of performance — inspired by the automotive world. '
-                    'Today, it’s a growing brand within the Big‑E ecosystem, offering a curated gateway to quality products '
-                    'from local and international brands. Our philosophy is simple: clarity, trust, and value. '
-                    'As we expand, the automotive branch will return, completing the full circle of innovation we stand for.',
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: isDark ? Colors.white70 : Colors.black87,
-                      height: 1.5,
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => Scaffold(
+                    appBar: AppBar(
+                      title: const Text('About BIG BOLYDE'),
+                      backgroundColor: theme.colorScheme.primary,
+                      foregroundColor: Colors.white,
+                      elevation: 1,
                     ),
+                    body: const Center(child: AboutCard()),
                   ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: const Text('Close'),
-                    ),
-                  ],
                 ),
               );
             },

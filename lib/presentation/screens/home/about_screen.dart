@@ -10,40 +10,49 @@ class AboutCard extends StatelessWidget {
 
     return Card(
       color: isDark
-          ? Colors.black.withOpacity(0.3)
-          : Colors.white.withOpacity(0.9),
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ? Colors.black.withOpacity(0.32)
+          : Colors.white.withOpacity(0.96),
+      elevation: 3,
+      margin: const EdgeInsets.symmetric(vertical: 28, horizontal: 18),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               'About BIG BOLYDE',
-              style: theme.textTheme.titleMedium?.copyWith(
+              style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: theme.colorScheme.primary,
+                letterSpacing: 1.1,
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 16),
             Text(
               'BIG BOLYDE is part of the Big‑E ecosystem — connecting business, home, and lifestyle innovation. '
               'Born from automotive roots, it now curates trusted products across gaming, tech, and everyday living — '
               'blending performance, design, and reliability.',
-              style: theme.textTheme.bodySmall?.copyWith(
+              style: theme.textTheme.bodyMedium?.copyWith(
                 color: isDark ? Colors.white70 : Colors.black87,
-                height: 1.5,
+                height: 1.6,
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 24),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: theme.colorScheme.primary,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 22,
+                  vertical: 12,
                 ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                elevation: 4,
+                shadowColor: theme.colorScheme.primary.withOpacity(0.3),
               ),
               onPressed: () {
                 showDialog(
@@ -70,7 +79,13 @@ class AboutCard extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('Learn more'),
+              child: const Text(
+                'LEARN MORE',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.1,
+                ),
+              ),
             ),
           ],
         ),
